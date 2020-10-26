@@ -1,0 +1,33 @@
+.dhlshipping_default_product{
+
+    border: 1px solid #b4b3b3;
+
+    .admin__field-control{
+      &.control {
+        float: none;
+      }
+    }
+}
+
+.system-fieldset-sub-head {
+    .comment {
+        padding: 0 0 0 2.8rem;
+    }
+}
+
+.dhl-service-block-container {
+  display: flex;
+  flex-wrap: wrap;
+  .dhl-service-block {
+    flex: 0 1 250px;
+    margin: 10px;
+  }
+
+  label.disabled, :not(.disabled) > :disabled {
+    opacity: .5;
+    cursor: not-allowed !important;
+  }
+  :disabled + i.custom-checkbox {
+    cursor: not-allowed;
+  }
+}

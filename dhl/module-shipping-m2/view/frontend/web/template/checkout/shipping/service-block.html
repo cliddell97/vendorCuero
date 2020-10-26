@@ -1,0 +1,25 @@
+<!-- ko if: hasServices() -->
+    <fieldset class="fieldset dhl-checkout-services-container">
+        <img data-bind="attr: {src: dhlLogoSrc}" width="150px" height="34px">
+        <legend class="label">
+            <h3 data-bind="text: dhlTitle"></h3>
+        </legend>
+        <!-- ko foreach: { data: dhlServiceBlockBefore, as: 'text' } -->
+            <p data-bind="text: text"></p>
+        <!-- /ko -->
+        <!-- ko foreach: { data: elems, as: 'element' } -->
+            <render if="hasTemplate()"></render>
+        <!-- /ko -->
+        <!-- ko if: showCombinedText() -->
+            <!-- ko foreach: { data: dhlServiceBlockAfter, as: 'text' } -->
+            <p if="text" class="field-note">
+                <span class="asterisk">*</span>
+                <span data-bind="html: text"></span>
+            </p>
+            <!-- /ko -->
+        <!-- /ko -->
+        <!-- ko if: error()-->
+            <label class="message error" data-bind="text: error"></label>
+        <!-- /ko -->
+    </fieldset>
+<!-- /ko -->

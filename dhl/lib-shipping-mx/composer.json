@@ -1,0 +1,40 @@
+{
+    "name": "dhl/lib-shipping-mx",
+    "version": "0.11.1",
+    "description": "Communication types and other utilities for DHL Business Customer Shipping SOAP API access.",
+    "type": "magento2-library",
+    "license": "OSL-3.0",
+    "require": {
+        "php": ">=5.6",
+        "ext-json": "*",
+        "ext-soap": "*",
+        "psr/log": "~1.0"
+    },
+    "support": {
+        "wiki": "http://dhl.support.netresearch.de/",
+        "issues": "http://dhl.support.netresearch.de/support/tickets/new",
+        "docs": "http://dhl.support.netresearch.de/support/solutions/articles/12000023174",
+        "email": "dhl.support@netresearch.de"
+    },
+    "authors": [
+        {
+            "name": "Christoph Aßmann",
+            "email": "christoph.assmann@netresearch.de",
+            "homepage": "https://www.netresearch.de/",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Dhl\\Shipping\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "0.11.x-dev"
+        }
+    }
+}

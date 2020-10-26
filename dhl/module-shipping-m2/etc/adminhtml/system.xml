@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers">
+            <group id="dhlshipping" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>DHL Shipping</label>
+                <!-- Api Type -->
+                <field id="api_type" translate="label tooltip" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Connection</label>
+                    <source_model>Dhl\Shipping\Model\Adminhtml\System\Config\Source\ApiType</source_model>
+                    <frontend_model>Dhl\Shipping\Block\Adminhtml\System\Config\Form\Field\ApiType</frontend_model>
+                    <comment><![CDATA[Select an API connection to configure. This setting does <strong>not</strong> select an API for use. The API used depends on your shipping origin country.]]></comment>
+                    <tooltip>If you are shipping from Germany or Austria, configure Business Customer Shipping. If you are shipping from other countries, configure eCommerce Global API.</tooltip>
+                </field>
+                <!-- Availability Message -->
+                <field id="availability_note" translate="label tooltip" type="note" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>DHL Shipping is not available</label>
+                    <frontend_model>Dhl\Shipping\Block\Adminhtml\System\Config\Form\Field\Warning</frontend_model>
+                    <comment>Your shipping origin country is not on the list of supported countries.</comment>
+                    <depends>
+                        <field id="carriers/dhlshipping/api_type" separator="," negative="1">bcs,gla</field>
+                    </depends>
+                </field>
+
+                <include path="Dhl_Shipping::system/10_general_settings.xml"/>
+                <include path="Dhl_Shipping::system/20_bcs_account_settings.xml"/>
+                <include path="Dhl_Shipping::system/30_gla_account_settings.xml"/>
+                <include path="Dhl_Shipping::system/40_general_shipping_settings.xml"/>
+                <include path="Dhl_Shipping::system/50_checkout_service_settings.xml"/>
+                <include path="Dhl_Shipping::system/60_gla_shipping_settings.xml"/>
+                <include path="Dhl_Shipping::system/70_cod_settings.xml"/>
+                <include path="Dhl_Shipping::system/80_autocreate_settings.xml"/>
+                <include path="Dhl_Shipping::system/90_autocreate_cron_settings.xml"/>
+            </group>
+        </section>
+    </system>
+</config>
